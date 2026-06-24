@@ -175,7 +175,7 @@ export default function App() {
         {/* ---- about + skills ---- */}
         <section id="about" className="split">
           <motion.div className="block" {...fade()}>
-            <p className="label">/* about */</p>
+            <p className="label">About</p>
             <p className="prose">
               I’m a Computer Science student who likes the part of a product
               nobody sees but everybody depends on. I’ve built REST APIs, auth
@@ -186,7 +186,7 @@ export default function App() {
           </motion.div>
 
           <motion.div className="block" {...fade(0.08)}>
-            <p className="label">/* stack */</p>
+            <p className="label">Stack</p>
             <ul className="chips">
               {skills.map((s) => (
                 <li key={s}>{s}</li>
@@ -198,7 +198,7 @@ export default function App() {
         {/* ---- work ---- */}
         <section id="work" className="work">
           <motion.div className="work-head" {...fade()}>
-            <p className="label">/* selected work */</p>
+            <p className="label">Selected work</p>
             <h2>Things I’ve built</h2>
           </motion.div>
 
@@ -244,7 +244,7 @@ export default function App() {
 
         {/* ---- contact ---- */}
         <motion.section id="contact" className="contact" {...fade()}>
-          <p className="label">/* contact */</p>
+          <p className="label">Contact</p>
           <h2>
             Open to internships, junior backend roles,
             <br />
@@ -268,16 +268,16 @@ const css = `
   *, *::before, *::after { box-sizing: border-box; }
 
   :root {
-    --bg: #0d0f12;
-    --panel: #14171c;
-    --panel-2: #181b21;
-    --line: #23272f;
-    --line-soft: #1c2026;
-    --ink: #e8eaed;
-    --ink-dim: #9aa1ac;
-    --ink-faint: #5d6470;
+    --bg: #1b1f27;
+    --panel: #232833;
+    --panel-2: #2a303c;
+    --line: #353b48;
+    --line-soft: #2c323d;
+    --ink: #eef0f3;
+    --ink-dim: #a8aeb9;
+    --ink-faint: #6b7280;
     --accent: #4ade80;
-    --accent-dim: #2f7d52;
+    --accent-dim: #3a9e66;
     --amber: #fbbf24;
     --red: #f87171;
     --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -308,7 +308,7 @@ const css = `
     padding: 26px 0;
     position: sticky;
     top: 0;
-    background: rgba(13,15,18,0.72);
+    background: rgba(27,31,39,0.78);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line-soft);
     z-index: 20;
