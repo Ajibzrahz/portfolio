@@ -1,5 +1,13 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, Mail, MapPin, Terminal, Circle } from "lucide-react";
+import {
+  ArrowUpRight,
+  Mail,
+  MapPin,
+  Terminal,
+  Circle,
+  FileText,
+  GraduationCap,
+} from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function App() {
@@ -11,9 +19,10 @@ export default function App() {
       title: "Expense Tracker",
       status: "in progress",
       description:
-        "A full-stack personal finance app: track transactions, set monthly budgets, and surface spending analytics. Next.js client on Vercel, REST API for transactions, budgets, and reporting.",
-      stack: ["Next.js", "Node.js", "Express", "MongoDB", "Vercel"],
-      link: "#",
+        "A full-stack personal finance app: track transactions, set monthly budgets, and surface spending analytics. I built the REST API for transactions, budgets, and reporting, served to a Next.js client on Vercel.",
+      stack: ["Node.js", "Express", "MongoDB", "Next.js", "Vercel"],
+      repo: "https://github.com/Ajibzrahz/Expense-Tracker",
+      live: "https://expense-tracker-frontend-ashy-zeta.vercel.app/dashboard",
     },
     {
       index: "02",
@@ -22,7 +31,8 @@ export default function App() {
       description:
         "A data-driven platform that helps livestock farmers estimate startup and operational costs, compare farm scales, and make smarter financial decisions. Pairs an Express API with a Python ML service.",
       stack: ["Node.js", "Express", "MongoDB", "FastAPI", "Render"],
-      link: "https://github.com/Ajibzrahz/livestock-cost-estimator-backend",
+      repo: "https://github.com/Ajibzrahz/livestock-cost-estimator-backend",
+      live: "https://livestock-cost-estimator.vercel.app/",
     },
     {
       index: "03",
@@ -31,7 +41,8 @@ export default function App() {
       description:
         "A scalable backend powering an e-commerce workflow — authentication, product handling, and a clean structure ready for frontend integration.",
       stack: ["Node.js", "Express", "MongoDB"],
-      link: "#",
+      repo: "https://github.com/Ajibzrahz/Mart",
+      live: null,
     },
     {
       index: "04",
@@ -40,7 +51,8 @@ export default function App() {
       description:
         "A secure auth flow built for real application use cases: JWT, email verification, HTTP-only cookies, and password reset logic.",
       stack: ["Node.js", "JWT", "MongoDB", "Nodemailer"],
-      link: "https://github.com/Ajibzrahz/Authetication",
+      repo: "https://github.com/Ajibzrahz/Authetication",
+      live: null,
     },
   ];
 
@@ -121,6 +133,14 @@ export default function App() {
                 See the work <ArrowUpRight size={16} strokeWidth={2.4} />
               </a>
               <a
+                href="/resume.PDF"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-ghost"
+              >
+                <FileText size={15} strokeWidth={2.2} /> Resume
+              </a>
+              <a
                 href="mailto:ajibonaraheem@gmail.com"
                 className="btn btn-ghost"
               >
@@ -183,6 +203,13 @@ export default function App() {
               and Vercel — usually owning the backend while a frontend takes
               shape alongside it.
             </p>
+            <div className="edu">
+              <GraduationCap size={16} strokeWidth={2} />
+              <span>
+                B.Sc. Computer Science · Federal University of Agriculture,
+                Abeokuta · 2026
+              </span>
+            </div>
           </motion.div>
 
           <motion.div className="block" {...fade(0.08)}>
@@ -203,42 +230,51 @@ export default function App() {
           </motion.div>
 
           <ul className="projects">
-            {projects.map((p, i) => {
-              const live = p.link !== "#";
-              return (
-                <motion.li key={p.title} className="proj" {...fade(i * 0.06)}>
-                  <a
-                    className="proj-link"
-                    href={p.link}
-                    {...(live ? {} : { "aria-disabled": "true", tabIndex: -1 })}
-                    onClick={(e) => !live && e.preventDefault()}
-                  >
-                    <span className="proj-no">{p.index}</span>
-                    <div className="proj-main">
-                      <div className="proj-top">
-                        <h3>{p.title}</h3>
-                        <span
-                          className={`status ${
-                            p.status === "in progress" ? "wip" : "done"
-                          }`}
-                        >
-                          {p.status}
-                        </span>
-                      </div>
-                      <p className="proj-desc">{p.description}</p>
-                      <div className="proj-stack">
-                        {p.stack.map((t) => (
-                          <span key={t}>{t}</span>
-                        ))}
-                      </div>
+            {projects.map((p, i) => (
+              <motion.li key={p.title} className="proj" {...fade(i * 0.06)}>
+                <div className="proj-row">
+                  <span className="proj-no">{p.index}</span>
+                  <div className="proj-main">
+                    <div className="proj-top">
+                      <h3>{p.title}</h3>
+                      <span
+                        className={`status ${
+                          p.status === "in progress" ? "wip" : "done"
+                        }`}
+                      >
+                        {p.status}
+                      </span>
                     </div>
-                    <span className="proj-arrow" aria-hidden="true">
-                      <ArrowUpRight size={20} strokeWidth={2.2} />
-                    </span>
-                  </a>
-                </motion.li>
-              );
-            })}
+                    <p className="proj-desc">{p.description}</p>
+                    <div className="proj-stack">
+                      {p.stack.map((t) => (
+                        <span key={t}>{t}</span>
+                      ))}
+                    </div>
+                    <div className="proj-actions">
+                      <a
+                        className="proj-action"
+                        href={p.repo}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <FaGithub size={15} /> Code
+                      </a>
+                      {p.live && (
+                        <a
+                          className="proj-action live"
+                          href={p.live}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <ArrowUpRight size={15} strokeWidth={2.2} /> Live demo
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </motion.li>
+            ))}
           </ul>
         </section>
 
@@ -478,6 +514,17 @@ const css = `
     border-top: 1px solid var(--line-soft);
   }
   .prose { color: var(--ink-dim); font-size: 16px; line-height: 1.78; margin: 0; }
+  .edu {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 18px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+  .edu svg { color: var(--accent); flex-shrink: 0; }
   .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
   .chips li {
     font-family: var(--mono);
@@ -501,18 +548,13 @@ const css = `
   .projects { list-style: none; margin: 36px 0 0; padding: 0; }
   .proj { border-top: 1px solid var(--line); }
   .proj:last-child { border-bottom: 1px solid var(--line); }
-  .proj-link {
+  .proj-row {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr;
     gap: 24px;
     align-items: start;
     padding: 28px 8px;
-    text-decoration: none;
-    color: inherit;
-    transition: background .2s, padding-left .2s;
   }
-  .proj-link:hover { background: var(--panel); padding-left: 18px; }
-  .proj-link[aria-disabled="true"] { cursor: default; }
   .proj-no {
     font-family: var(--mono);
     font-size: 13px;
@@ -546,9 +588,24 @@ const css = `
     border: 1px solid var(--line);
     border-radius: 6px;
   }
-  .proj-arrow { color: var(--ink-faint); padding-top: 4px; transition: color .2s, transform .2s; }
-  .proj-link:hover .proj-arrow { color: var(--accent); transform: translate(3px, -3px); }
-  .proj-link[aria-disabled="true"] .proj-arrow { opacity: 0.25; }
+  .proj-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .proj-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    text-decoration: none;
+    color: var(--ink-dim);
+    padding: 8px 13px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+    transition: color .18s, border-color .18s, transform .16s;
+  }
+  .proj-action:hover { color: var(--ink); border-color: var(--ink-faint); transform: translateY(-2px); }
+  .proj-action.live { color: var(--accent); border-color: var(--accent-dim); }
+  .proj-action.live:hover { background: rgba(74,222,128,0.08); }
 
   /* contact */
   .contact { padding: 80px 0 56px; border-top: 1px solid var(--line-soft); text-align: left; }
@@ -603,8 +660,7 @@ const css = `
   @media (max-width: 600px) {
     .wrap { padding: 0 18px 72px; }
     .nav a { padding: 8px 9px; }
-    .proj-link { grid-template-columns: 1fr; gap: 10px; padding: 22px 6px; }
-    .proj-arrow { display: none; }
+    .proj-row { grid-template-columns: 1fr; gap: 10px; padding: 22px 6px; }
     .proj-no { padding-top: 0; }
     .foot { justify-content: flex-start; }
   }
