@@ -61,13 +61,13 @@ export default function App() {
   const projects = [
     {
       title: "Expense Tracker",
-      status: "in progress",
+      status: "shipped",
       tag: "Fullstack",
       description:
         "A full-stack personal finance app: track transactions, set monthly budgets, and surface spending analytics. REST API for transactions, budgets, and reporting, served to a Next.js client.",
       stack: ["Node.js", "Express", "MongoDB", "Next.js"],
-      repo: "https://github.com/Ajibzrahz/Expense-Tracker",
-      live: "https://expense-tracker-frontend-ashy-zeta.vercel.app/dashboard",
+      repo: "https://github.com/Ajibzrahz/Expense-Tracker-FE",
+      live: "https://expense-tracker-navy-chi-55.vercel.app/",
     },
     {
       title: "Livestock Cost Estimator",
