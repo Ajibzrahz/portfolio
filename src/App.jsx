@@ -66,7 +66,7 @@ export default function App() {
       description:
         "A Linktree-style link-in-bio platform with click analytics behind a Pro subscription. Built to learn Supabase auth (with Google OAuth) and Stripe subscriptions on top of my usual Node/Express/MongoDB stack — Stripe webhooks are the sole source of truth for Pro status.",
       stack: ["Node.js", "Express", "MongoDB", "React", "Supabase", "Stripe"],
-      repo: "https://github.com/Ajibzrahz/LINKFOLD-ft",
+      repo: "https://github.com/Ajibzrahz/LINKFOLD",
       live: "https://linkfold-ft.vercel.app",
     },
     {
