@@ -409,7 +409,7 @@ export default function App() {
               </div>
               <a
                 className="info"
-                href="/resume.PDF"
+                href="/resume.pdf"
                 target="_blank"
                 rel="noreferrer"
               >
